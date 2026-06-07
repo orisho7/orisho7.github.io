@@ -126,6 +126,8 @@ let scrollCooldown   = false
 let scrollTimer      = null
 
 function handleWheel(e) {
+  // Allow normal scrolling on mobile/tablet viewports
+  if (window.innerWidth <= 768) return
   e.preventDefault()
   if (scrollCooldown) return
   const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY

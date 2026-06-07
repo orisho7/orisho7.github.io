@@ -59,8 +59,20 @@ const projects = [
     tags: ['Go', 'CLI', 'Caching'],
   },
   {
+    title: 'VoiceMemo',
+    year: '2024',
+    link: 'https://github.com/orisho7/Mic',
+    bullets: [
+      'Modern, feature-rich C# audio recording utility featuring real-time speech-to-text transcription powered by the Vosk engine.',
+      'Designed custom circular wave visualizers, volume indicators, and settings persistence via NAudio and Vosk.',
+      'Implements sample rate configuration, recording timers, and structured error handling for high-fidelity audio workflows.',
+    ],
+    tags: ['C#', '.NET', 'NAudio', 'Vosk', 'Audio Processing'],
+  },
+  {
     title: 'GameRank',
     year: '2023',
+    link: 'https://game-rank-orisho.vercel.app/',
     bullets: [
       'Distraction-free, ad-free gaming ranking platform with clean functionality and intuitive design for daily use.',
       'Focused on streamlined user experiences and seamless browser integration.',
@@ -98,29 +110,46 @@ const projects = [
 
 .project-title-row {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
   gap: 1rem;
 }
 
 .project-meta {
   display: flex;
-  align-items: baseline;
-  gap: 0.75rem;
+  align-items: center;
+  gap: 0.85rem;
   flex-shrink: 0;
 }
 
 .project-link {
   font-family: var(--font-mono);
-  font-size: 0.6rem;
-  letter-spacing: 0.1em;
-  color: var(--color-text-muted);
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
   text-decoration: none;
-  transition: color 0.2s ease;
+  border: 1px solid var(--color-border);
+  padding: 0.35rem 0.8rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  /* crisp pixel-like cursor */
+  cursor: pointer;
 }
 
 .project-link:hover {
-  color: var(--color-text-primary);
+  color: var(--color-bg);
+  background: var(--color-text-primary);
+  border-color: var(--color-text-primary);
+  transform: translateY(-1px);
+}
+
+.project-link:active {
+  transform: translateY(0);
 }
 
 .project-name {

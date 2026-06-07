@@ -91,4 +91,28 @@ defineEmits(['navigate'])
 .nav-btn--active::after {
   width: 100%;
 }
+
+.nav-item {
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .nav-list {
+    gap: clamp(0.6rem, 2.5vw, 1.5rem);
+  }
+  .nav-btn {
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-list {
+    gap: 0.5rem;
+  }
+  .nav-btn {
+    font-size: 0.52rem;
+    letter-spacing: 0.08em;
+  }
+}
 </style>
