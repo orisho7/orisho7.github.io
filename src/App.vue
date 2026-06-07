@@ -184,9 +184,18 @@ function handleKeyDown(e) {
 function onBeforeEnter(el) {
   isTransitioning = true
   gsap.set(el, { xPercent: direction.value * 100, opacity: 1, position: 'absolute' })
+  
+  // Stagger target text elements inside entering component
+  const textBlocks = el.querySelectorAll(
+    '.section-eyebrow, h2, .project-item, .skill-category, .soft-skills, .timeline-item, .contact-intro, .contact-link-item, .home-label, .home-name, .home-tagline, .home-meta'
+  )
+  if (textBlocks.length) {
+    gsap.set(textBlocks, { opacity: 0, y: 15 })
+  }
 }
 
 function onEnter(el, done) {
+  // Slide wrapper
   gsap.to(el, {
     xPercent: 0,
     duration: 0.7,
@@ -197,9 +206,40 @@ function onEnter(el, done) {
       done()
     },
   })
+
+  // Staggered fade in and slide up
+  const textBlocks = el.querySelectorAll(
+    '.section-eyebrow, h2, .project-item, .skill-category, .soft-skills, .timeline-item, .contact-intro, .contact-link-item, .home-label, .home-name, .home-tagline, .home-meta'
+  )
+  if (textBlocks.length) {
+    gsap.to(textBlocks, {
+      opacity: 1,
+      y: 0,
+      duration: 0.65,
+      stagger: 0.04,
+      ease: 'power2.out',
+      delay: 0.12,
+      clearProps: 'opacity,transform',
+    })
+  }
 }
 
 function onLeave(el, done) {
+  // Staggered fade out and slide up
+  const textBlocks = el.querySelectorAll(
+    '.section-eyebrow, h2, .project-item, .skill-category, .soft-skills, .timeline-item, .contact-intro, .contact-link-item, .home-label, .home-name, .home-tagline, .home-meta'
+  )
+  if (textBlocks.length) {
+    gsap.to(textBlocks, {
+      opacity: 0,
+      y: -15,
+      duration: 0.45,
+      stagger: 0.02,
+      ease: 'power2.in',
+    })
+  }
+
+  // Slide wrapper out
   gsap.to(el, {
     xPercent: -direction.value * 100,
     duration: 0.7,
