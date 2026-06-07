@@ -97,6 +97,8 @@ onUnmounted(() => {
   color: var(--color-text-primary);
   /* Reserve height so layout doesn't jump before typing starts */
   min-height: 1.05em;
+  text-align: center;
+  width: 100%;
 }
 
 .home-tagline {
