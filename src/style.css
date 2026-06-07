@@ -178,7 +178,6 @@ a { color: inherit; text-decoration: none; }
     overflow: hidden !important;
   }
   .section,
-  .home-section,
   .projects-section,
   .skills-section,
   .experience-section,
@@ -191,6 +190,15 @@ a { color: inherit; text-decoration: none; }
     -webkit-overflow-scrolling: touch;
     height: 100% !important;
     padding: 4.5rem var(--section-padding) calc(var(--nav-height) + 1.5rem) var(--section-padding) !important;
+  }
+  .home-section {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    overflow: hidden !important;
+    height: 100% !important;
+    padding: 0 var(--section-padding) !important;
   }
   .section-content {
     height: auto !important;
