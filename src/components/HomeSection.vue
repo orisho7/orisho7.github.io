@@ -90,7 +90,7 @@ onUnmounted(() => {
 
 .home-name {
   font-family: var(--font-display);
-  font-size: clamp(3.2rem, 9vw, 8.5rem);
+  font-size: clamp(1.4rem, 8vw, 8.5rem);
   font-weight: 700;
   letter-spacing: 0.06em;
   line-height: 0.92;
