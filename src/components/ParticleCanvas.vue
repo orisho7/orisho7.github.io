@@ -15,15 +15,15 @@ const canvasRef = ref(null)
 // More stars across all layers, varied sizes for true depth
 const LAYERS = [
   // 0: deep-field micro-dust  (1px, barely visible, very slow)
-  { count: 180, size: [1, 1], opacity: [0.04, 0.18], speed: [0.0005, 0.0014], returnSpeed: 0.012, friction: 0.92 },
+  { count: 180, size: [1, 1], opacity: [0.02, 0.08], speed: [0.0005, 0.0014], returnSpeed: 0.012, friction: 0.92 },
   // 1: background field stars (1-2px, slow drift)
-  { count: 110, size: [1, 2], opacity: [0.10, 0.28], speed: [0.0010, 0.0026], returnSpeed: 0.022, friction: 0.89 },
+  { count: 110, size: [1, 2], opacity: [0.04, 0.14], speed: [0.0010, 0.0026], returnSpeed: 0.022, friction: 0.89 },
   // 2: mid stars — cross shape (2-3px)
-  { count:  60, size: [2, 3], opacity: [0.18, 0.40], speed: [0.0015, 0.0036], returnSpeed: 0.030, friction: 0.86 },
+  { count:  60, size: [2, 3], opacity: [0.06, 0.20], speed: [0.0015, 0.0036], returnSpeed: 0.030, friction: 0.86 },
   // 3: foreground bright stars — 4-point (3-5px, glow in dark)
-  { count:  28, size: [3, 5], opacity: [0.30, 0.65], speed: [0.0018, 0.0045], returnSpeed: 0.038, friction: 0.83 },
+  { count:  28, size: [3, 5], opacity: [0.10, 0.30], speed: [0.0018, 0.0045], returnSpeed: 0.038, friction: 0.83 },
   // 4: accent hero stars — large 4-point with strong glow
-  { count:  10, size: [5, 7], opacity: [0.45, 0.80], speed: [0.0008, 0.0018], returnSpeed: 0.018, friction: 0.90 },
+  { count:  10, size: [5, 7], opacity: [0.15, 0.40], speed: [0.0008, 0.0018], returnSpeed: 0.018, friction: 0.90 },
 ]
 
 const MOUSE_REPEL_RADIUS  = 145
