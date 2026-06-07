@@ -173,6 +173,41 @@ function handleTouchEnd(e) {
   isSwiping = false
 }
 
+/* ─── Mouse Drag Swipe ───────────────────────────────────── */
+let isMouseDown = false
+let mouseStartX = 0
+let mouseStartY = 0
+let mouseStartT = 0
+
+function handleMouseDown(e) {
+  if (e.button !== 0) return
+  if (e.target.closest('a, button, input, textarea, select, [role="button"]')) return
+  isMouseDown = true
+  mouseStartX = e.clientX
+  mouseStartY = e.clientY
+  mouseStartT = Date.now()
+}
+
+function handleMouseMove(e) {
+  if (!isMouseDown) return
+  const dx = e.clientX - mouseStartX
+  const dy = e.clientY - mouseStartY
+  if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 10) {
+    e.preventDefault()
+  }
+}
+
+function handleMouseUp(e) {
+  if (!isMouseDown) return
+  isMouseDown = false
+  const dx = e.clientX - mouseStartX
+  const dy = e.clientY - mouseStartY
+  const dt = Date.now() - mouseStartT
+  if (Math.abs(dx) >= 50 && Math.abs(dx) > Math.abs(dy) && dt < 600) {
+    dx < 0 ? navigateNext() : navigatePrev()
+  }
+}
+
 /* ─── Keyboard ───────────────────────────────────────────── */
 function handleKeyDown(e) {
   if (['INPUT', 'TEXTAREA', 'SELECT'].includes(e.target.tagName)) return
@@ -262,6 +297,9 @@ onMounted(() => {
   window.addEventListener('touchstart', handleTouchStart, { passive: true  })
   window.addEventListener('touchmove',  handleTouchMove,  { passive: false })
   window.addEventListener('touchend',   handleTouchEnd,   { passive: true  })
+  window.addEventListener('mousedown',  handleMouseDown)
+  window.addEventListener('mousemove',  handleMouseMove,  { passive: false })
+  window.addEventListener('mouseup',    handleMouseUp)
   window.addEventListener('keydown',    handleKeyDown)
 })
 
@@ -271,6 +309,9 @@ onUnmounted(() => {
   window.removeEventListener('touchstart', handleTouchStart)
   window.removeEventListener('touchmove',  handleTouchMove)
   window.removeEventListener('touchend',   handleTouchEnd)
+  window.removeEventListener('mousedown',  handleMouseDown)
+  window.removeEventListener('mousemove',  handleMouseMove)
+  window.removeEventListener('mouseup',    handleMouseUp)
   window.removeEventListener('keydown',    handleKeyDown)
 })
 </script>

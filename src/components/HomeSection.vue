@@ -19,6 +19,11 @@
         <span class="meta-loc">Qassim, Unayzah</span>
       </div>
 
+      <div class="home-explore-hint" aria-hidden="true">
+        <span>SWIPE OR SCROLL</span>
+        <span class="hint-arrow">➔</span>
+      </div>
+
     </div>
   </section>
 </template>
@@ -64,6 +69,8 @@ onUnmounted(() => {
   gap: 1.25rem;
   text-align: center;
   user-select: none;
+  width: 100%;
+  max-width: min(640px, 90vw);
 }
 
 .home-label {
@@ -119,6 +126,30 @@ onUnmounted(() => {
   letter-spacing: 0.12em;
   color: var(--color-text-muted);
   margin-top: 0.75rem;
+}
+
+.home-explore-hint {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-top: 3.5rem;
+  opacity: 0.7;
+  align-self: flex-end;
+}
+
+.hint-arrow {
+  display: inline-block;
+  animation: slide-arrow 1.6s infinite ease-in-out;
+}
+
+@keyframes slide-arrow {
+  0%, 100% { transform: translateX(0); opacity: 0.6; }
+  50% { transform: translateX(4px); opacity: 1; }
 }
 </style>
 
