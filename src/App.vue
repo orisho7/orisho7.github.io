@@ -189,7 +189,7 @@ function onBeforeEnter(el) {
 function onEnter(el, done) {
   gsap.to(el, {
     xPercent: 0,
-    duration: 0.78,
+    duration: 0.7,
     ease: 'expo.out',
     onComplete: () => {
       gsap.set(el, { position: '', clearProps: 'xPercent' })
@@ -202,8 +202,8 @@ function onEnter(el, done) {
 function onLeave(el, done) {
   gsap.to(el, {
     xPercent: -direction.value * 100,
-    duration: 0.68,
-    ease: 'expo.in',
+    duration: 0.7,
+    ease: 'expo.out',
     onComplete: done,
   })
 }
