@@ -1,0 +1,167 @@
+/* ─── Design Tokens — Light ──────────────────────────────── */
+:root {
+  --color-bg:             #ffffff;
+  --color-bg-secondary:   #f8f8f8;
+  --color-text-primary:   #0a0a0a;
+  --color-text-secondary: #3d3d3d;
+  --color-text-muted:     #777777;
+  --color-accent:         #0a0a0a;
+  --color-nav-active:     #0a0a0a;
+  --color-nav-inactive:   #888888;
+  --color-border:         #e8e8e8;
+  --color-dot-active:     #0a0a0a;
+  --color-dot-inactive:   #d0d0d0;
+  --color-toggle-bg:      #f0f0f0;
+  --color-toggle-fg:      #0a0a0a;
+
+  /* Font stacks */
+  --font-display: 'Oxanium', 'Space Mono', monospace;
+  --font-mono:    'Space Mono', 'Courier New', monospace;
+  --font-body:    'Outfit', system-ui, sans-serif;
+
+  --nav-height: 68px;
+  --section-padding: 2rem;
+}
+
+/* ─── Design Tokens — Dark ───────────────────────────────── */
+.dark {
+  --color-bg:             #07070f;
+  --color-bg-secondary:   #0e0e1a;
+  --color-text-primary:   #e8eaf6;
+  --color-text-secondary: #c0c4d8;
+  --color-text-muted:     #8a8faa;
+  --color-accent:         #e8eaf6;
+  --color-nav-active:     #e8eaf6;
+  --color-nav-inactive:   #7a7fa0;
+  --color-border:         #1a1c2e;
+  --color-dot-active:     #e8eaf6;
+  --color-dot-inactive:   #282a40;
+  --color-toggle-bg:      #1a1c2e;
+  --color-toggle-fg:      #e8eaf6;
+}
+
+/* ─── Reset ─────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+#app {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ─── Typography ─────────────────────────────────────────── */
+body {
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 6vw, 5.5rem);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  color: var(--color-text-primary);
+}
+
+h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3.5vw, 2.8rem);
+  font-weight: 300;
+  letter-spacing: -0.01em;
+  color: var(--color-text-primary);
+}
+
+h3 {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+p {
+  font-family: var(--font-body);
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
+  line-height: 1.8;
+  color: var(--color-text-secondary);
+  font-weight: 400;
+}
+
+/* ─── Shared section styles ──────────────────────────────── */
+.section-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2.5rem;
+  max-width: min(640px, 90vw);
+  width: 100%;
+}
+
+.section-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.section-eyebrow::before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 1px;
+  background: var(--color-text-muted);
+  flex-shrink: 0;
+}
+
+.section-scroll {
+  width: 100%;
+  max-height: calc(100vh - var(--nav-height) - 10rem);
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.section-scroll::-webkit-scrollbar { display: none; }
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background: var(--color-border);
+}
+
+.tag {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+  padding: 0.2rem 0.55rem;
+}
+
+a { color: inherit; text-decoration: none; }
+
+:focus-visible {
+  outline: 1px solid var(--color-accent);
+  outline-offset: 3px;
+}
