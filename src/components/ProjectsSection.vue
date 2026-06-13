@@ -40,6 +40,17 @@
 <script setup>
 const projects = [
   {
+    title: 'Robin',
+    year: '2026',
+    link: 'https://github.com/orisho7/Robin_CLI',
+    bullets: [
+      'Lightweight, real-time observability agent and CLI dashboard streaming live system metrics via Server-Sent Events (SSE).',
+      'Interactive Bubble Tea terminal UI with auto-reconnect, persistent setup wizard, and built-in system stress testing capabilities.',
+      'Supports seamless monitoring of local and remote servers with zero-config public tunneling integration.',
+    ],
+    tags: ['Go', 'CLI', 'TUI', 'SSE'],
+  },
+  {
     title: 'AI-Assisted Goal Management System',
     year: '2024',
     bullets: [
