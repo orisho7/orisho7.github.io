@@ -115,8 +115,8 @@ const projects = [
 .project-header {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-  padding: 1.75rem 0;
+  gap: 0.55rem;
+  padding: 1.1rem 0;
 }
 
 .project-title-row {
@@ -165,7 +165,7 @@ const projects = [
 
 .project-name {
   font-family: var(--font-display);
-  font-size: 0.95rem;
+  font-size: 0.82rem;
   font-weight: 500;
   letter-spacing: 0.06em;
   color: var(--color-text-primary);
@@ -189,8 +189,8 @@ const projects = [
 }
 
 .project-bullets li {
-  font-size: 0.875rem;
-  line-height: 1.75;
+  font-size: 0.775rem;
+  line-height: 1.6;
   color: var(--color-text-secondary);
   font-weight: 400;
   padding-left: 1rem;

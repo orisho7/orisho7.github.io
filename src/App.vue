@@ -297,7 +297,7 @@ onMounted(() => {
     isDark.value = window.matchMedia('(prefers-color-scheme: dark)').matches
   }
 
-  window.addEventListener('wheel',      handleWheel,      { passive: false })
+  // wheel scroll navigation disabled
   window.addEventListener('touchstart', handleTouchStart, { passive: true  })
   window.addEventListener('touchmove',  handleTouchMove,  { passive: false })
   window.addEventListener('touchend',   handleTouchEnd,   { passive: true  })
@@ -309,7 +309,7 @@ onMounted(() => {
 
 onUnmounted(() => {
   if (scrollTimer) clearTimeout(scrollTimer)
-  window.removeEventListener('wheel',      handleWheel)
+  // wheel scroll navigation disabled
   window.removeEventListener('touchstart', handleTouchStart)
   window.removeEventListener('touchmove',  handleTouchMove)
   window.removeEventListener('touchend',   handleTouchEnd)
