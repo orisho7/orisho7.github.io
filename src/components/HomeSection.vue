@@ -105,7 +105,8 @@ onUnmounted(() => {
   /* Reserve height so layout doesn't jump before typing starts */
   min-height: 1.05em;
   text-align: center;
-  width: 100%;
+  width: max-content;
+  max-width: 100vw;
 }
 
 .home-tagline {

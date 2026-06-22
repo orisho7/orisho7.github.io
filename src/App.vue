@@ -128,9 +128,13 @@ let scrollTimer      = null
 function handleWheel(e) {
   // Allow normal scrolling on mobile/tablet viewports
   if (window.innerWidth <= 768) return
+
+  // Disable horizontal scroll navigation
+  if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) return
+
   e.preventDefault()
   if (scrollCooldown) return
-  const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY
+  const delta = e.deltaY
   const norm  = e.deltaMode === 1 ? delta * 40 : e.deltaMode === 2 ? delta * 800 : delta
   scrollAccum += norm
   if (Math.abs(scrollAccum) >= SCROLL_THRESHOLD) {
